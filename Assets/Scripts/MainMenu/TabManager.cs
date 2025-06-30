@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.InputSystem;
 public class TabManager : MonoBehaviour
 {
     [System.Serializable]
@@ -16,6 +16,36 @@ public class TabManager : MonoBehaviour
     public Tab[] tabs;
 
     private int currentTabIndex = 0;
+    private MainMenuTabInputActions inputActions;
+
+    void Awake()
+    {
+        Debug.Log("TabManager Awake");
+
+        inputActions = new MainMenuTabInputActions();
+        
+        inputActions.MainMenuTabs.PreviousTab.performed += ctx =>
+        {
+            Debug.Log("L1 pressed");
+            SwitchTab(-1);
+        };
+
+        inputActions.MainMenuTabs.NextTab.performed += ctx =>
+        {
+            Debug.Log("R1 pressed");
+            SwitchTab(1);
+        };
+    }
+
+    void OnEnable()
+    {
+        inputActions.MainMenuTabs.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputActions.MainMenuTabs.Disable();
+    }
 
     void Start()
     {
@@ -27,6 +57,12 @@ public class TabManager : MonoBehaviour
         }
 
         ActivateTab(0); // standaard naar eerste tab
+    }
+
+    void SwitchTab(int direction)
+    {
+        int newIndex = (currentTabIndex + direction + tabs.Length) % tabs.Length;
+        ActivateTab(newIndex);
     }
 
     public void ActivateTab(int index)
