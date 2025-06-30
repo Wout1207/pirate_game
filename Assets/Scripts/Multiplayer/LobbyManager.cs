@@ -9,12 +9,14 @@ using Unity.Services.Relay.Models;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LobbyManager : MonoBehaviour
 {
     private Lobby currentLobby;
     private const float HeartbeatInterval = 15f;
     private float heartbeatTimer;
+    private bool isReady = false;
 
     private async void Start()
     {
@@ -57,6 +59,8 @@ public class LobbyManager : MonoBehaviour
             NetworkManager.Singleton.StartHost();
 
             StartCoroutine(HeartbeatLobbyCoroutine());
+
+            PollAllPlayersReady();
         }
         catch (LobbyServiceException e)
         {
@@ -94,7 +98,7 @@ public class LobbyManager : MonoBehaviour
         }
         catch (LobbyServiceException e)
         {
-            Debug.LogError(e);
+            CreateLobbyWithRelay();
         }
     }
 
@@ -125,4 +129,156 @@ public class LobbyManager : MonoBehaviour
             Debug.LogError(e);
         }
     }
+
+    public async Task SetReadyStatus(bool isReady)
+    {
+        string readyValue = isReady ? "true" : "false";
+        if (isReady)
+        {
+            PollGameStart();
+        }
+        await LobbyService.Instance.UpdatePlayerAsync(currentLobby.Id, AuthenticationService.Instance.PlayerId, new UpdatePlayerOptions
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+        {
+            { "ready", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, readyValue) }
+        }
+        });
+    }
+
+    public void OnReadyToggleButtonClicked()
+    {
+        isReady = !isReady;
+        _ = SetReadyStatus(isReady);
+
+        Debug.Log($"Ready state set to: {isReady}");
+
+        // Optionally update button text or color here
+    }
+
+
+
+    public async Task StartGame()
+    {
+        var lobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+
+        bool allReady = true;
+        foreach (var player in lobby.Players)
+        {
+            if (!player.Data.TryGetValue("ready", out var readyData) || readyData.Value != "true")
+            {
+                allReady = false;
+                break;
+            }
+        }
+
+        if (!allReady)
+        {
+            Debug.Log("Not all players are ready!");
+            return;
+        }
+
+        // Create Relay Allocation & Join Code
+        Allocation allocation = await RelayService.Instance.CreateAllocationAsync(4);
+        string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+
+        // Update lobby with join code and gameStarted flag
+        await LobbyService.Instance.UpdateLobbyAsync(currentLobby.Id, new UpdateLobbyOptions
+        {
+            Data = new Dictionary<string, DataObject>
+        {
+            { "joinCode", new DataObject(DataObject.VisibilityOptions.Public, joinCode) },
+            { "gameStarted", new DataObject(DataObject.VisibilityOptions.Public, "true") }
+        }
+        });
+
+        // Setup Relay Host transport and start host
+        UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        transport.SetRelayServerData(allocation.RelayServer.IpV4,
+                                    (ushort)allocation.RelayServer.Port,
+                                    allocation.AllocationIdBytes,
+                                    allocation.Key,
+                                    allocation.ConnectionData,
+                                    allocation.ConnectionData);
+
+        NetworkManager.Singleton.StartHost();
+
+        // Load game scene with Netcode Scene Manager (syncs clients automatically)
+        //NetworkManager.Singleton.SceneManager.LoadScene("GameScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        Debug.Log("loading new scene");
+    }
+    private async void PollGameStart()
+    {
+        while (true)
+        {
+            await Task.Delay(3000); // poll every 3 seconds
+
+            try
+            {
+                var updatedLobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+
+                if (updatedLobby.Data.TryGetValue("gameStarted", out var started) && started.Value == "true")
+                {
+                    string joinCode = updatedLobby.Data["joinCode"].Value;
+
+                    JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+
+                    UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+                    transport.SetRelayServerData(joinAllocation.RelayServer.IpV4,
+                                                (ushort)joinAllocation.RelayServer.Port,
+                                                joinAllocation.AllocationIdBytes,
+                                                joinAllocation.Key,
+                                                joinAllocation.ConnectionData,
+                                                joinAllocation.HostConnectionData);
+
+                    NetworkManager.Singleton.StartClient();
+
+                    //NetworkManager.Singleton.SceneManager.LoadScene("GameScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+                    Debug.Log("loading new scene");
+
+                    break;
+                }
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.LogError(e);
+            }
+        }
+    }
+
+    private async void PollAllPlayersReady()
+    {
+        while (true)
+        {
+            await Task.Delay(3000); // poll every 3 seconds
+
+            try
+            {
+                var updatedLobby = await LobbyService.Instance.GetLobbyAsync(currentLobby.Id);
+
+                bool allReady = true;
+
+                foreach (var player in updatedLobby.Players)
+                {
+                    if (!player.Data.TryGetValue("ready", out var readyData) || readyData.Value != "true")
+                    {
+                        allReady = false;
+                        break;
+                    }
+                }
+
+                if (allReady)
+                {
+                    Debug.Log("All players ready. Starting game...");
+                    await StartGame();
+                    break;
+                }
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.LogError(e);
+            }
+        }
+    }
+
 }
