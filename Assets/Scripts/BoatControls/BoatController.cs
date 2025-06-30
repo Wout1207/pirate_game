@@ -81,7 +81,7 @@ public class BoatController : MonoBehaviour, BoatControls.IGameplayActions
             currentTurn = Mathf.SmoothDamp(currentTurn, targetTurn, ref turnVelocity, turnSmoothTime);
         }
 
-        rb.AddTorque(Vector3.up * currentTurn * turnTorque, ForceMode.Force);
+        rb.AddTorque(Vector3.up * currentTurn * turnTorque * Time.deltaTime, ForceMode.Force);
 
         // Bouw de snelheid op richting target
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accelerationRate * Time.fixedDeltaTime);

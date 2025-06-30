@@ -995,6 +995,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6152594667607061467}
     - target: {fileID: 7927831178685126770, guid: c9f87fa280dde2940b1df494a64893c9, type: 3}
+      propertyPath: turnTorque
+      value: 300000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927831178685126770, guid: c9f87fa280dde2940b1df494a64893c9, type: 3}
       propertyPath: windSource
       value: 
       objectReference: {fileID: 5049857239920899234}
