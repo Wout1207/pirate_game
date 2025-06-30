@@ -260,7 +260,9 @@ public class LobbyManager : MonoBehaviour
 
                 foreach (var player in updatedLobby.Players)
                 {
-                    if (!player.Data.TryGetValue("ready", out var readyData) || readyData.Value != "true")
+                    if (player.Data == null ||
+                        !player.Data.TryGetValue("ready", out var readyData) ||
+                        readyData.Value != "true")
                     {
                         allReady = false;
                         break;
@@ -280,5 +282,6 @@ public class LobbyManager : MonoBehaviour
             }
         }
     }
+
 
 }
