@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameModeSelector : MonoBehaviour
 {
@@ -74,6 +75,7 @@ public class GameModeSelector : MonoBehaviour
     {
         // Laad je gamemode of toon extra scherm
         Debug.Log($"Selected game mode: {item.modeName}");
+        SceneManager.LoadScene(item.modeName);
     }
 
     public void ShowInfo(string title, string description)
