@@ -1092,6 +1092,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3986585979287988100, guid: 3d9e5088da2e4ba40b639b1467bc61ee, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4315318986445890987, guid: 3d9e5088da2e4ba40b639b1467bc61ee, type: 3}
       propertyPath: m_Sprite
       value: 
