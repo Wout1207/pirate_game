@@ -53,7 +53,7 @@ MonoBehaviour:
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
+  SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
@@ -994,6 +994,10 @@ PrefabInstance:
       propertyPath: anchorIcon
       value: 
       objectReference: {fileID: 6152594667607061467}
+    - target: {fileID: 7927831178685126770, guid: c9f87fa280dde2940b1df494a64893c9, type: 3}
+      propertyPath: turnTorque
+      value: 300000
+      objectReference: {fileID: 0}
     - target: {fileID: 7927831178685126770, guid: c9f87fa280dde2940b1df494a64893c9, type: 3}
       propertyPath: windSource
       value: 
