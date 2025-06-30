@@ -55,6 +55,10 @@ public class TileGeneration : MonoBehaviour
                 {
                     height = Mathf.Exp(height)- Mathf.Exp(0.7f) + 0.7f;
                 }
+                if (height < 0.57)
+                {
+                    height = Mathf.Pow(height,5) - Mathf.Pow(0.57f,5) + 0.57f;
+                }
                 
                 heightMap[z, x] = height;
             }
