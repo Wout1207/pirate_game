@@ -273,7 +273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deathmatch
+  m_text: Fleet Battle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 756706ab216afcb4dad069e62259a3c7, type: 2}
   m_sharedMaterial: {fileID: 2716735558213432075, guid: 756706ab216afcb4dad069e62259a3c7, type: 2}
@@ -883,8 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9b5b6f4e411814c8c5fe90727c5bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modeName: Fleet Battle
-  description: Fleet Battle Info
+  modeName: DeathMatch
+  description: Deathmatch Info
 --- !u!1 &189078592
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fleet Battle
+  m_text: Deathmatch
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 756706ab216afcb4dad069e62259a3c7, type: 2}
   m_sharedMaterial: {fileID: 2716735558213432075, guid: 756706ab216afcb4dad069e62259a3c7, type: 2}
@@ -1415,8 +1415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9b5b6f4e411814c8c5fe90727c5bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modeName: Deathmatch
-  description: Deathmatch Info
+  modeName: Fleet Battle
+  description: Fleet Battle Info
 --- !u!1 &465615630
 GameObject:
   m_ObjectHideFlags: 0
