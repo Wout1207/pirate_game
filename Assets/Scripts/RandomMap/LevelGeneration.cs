@@ -38,6 +38,7 @@ public class LevelGeneration : MonoBehaviour
                   this.gameObject.transform.position.z + zTileIndex * tileDepth);
                 // instantiate a new Tile
                 GameObject tile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                tile.transform.SetParent(transform);
                 Wave[] waves = tile.GetComponent<TileGeneration>().waves;
                 for (int waveIndex = 0; waveIndex < waves.Length; waveIndex++)
                 {
