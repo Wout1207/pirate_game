@@ -2,13 +2,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Netcode;
 
 [RequireComponent(typeof(Rigidbody))]
-public class BoatController : MonoBehaviour, BoatControls.IGameplayActions
+public class BoatController : NetworkBehaviour, BoatControls.IGameplayActions
 {
     private float turnInput = 0f;
     private float currentTurn = 0f;
     private float turnVelocity = 0f;
+
+    [Header("Camera")]
+    public GameObject MainCamera;
 
     [Header("Beweging")]
     public float[] speedLevels = new float[] { 0f, 5f, 10f, 15f };
@@ -25,12 +29,13 @@ public class BoatController : MonoBehaviour, BoatControls.IGameplayActions
 
     [Header("UI")]
     public TextMeshProUGUI speedText;
+    public GameObject ShipHud;
 
     [Header("Snelheidsniveau UI")]
     public Image[] speedDots;
     public Color inactiveColor = Color.gray;
     public Color activeColor = Color.white;
-    
+
     [Header("Anker UI")]
     public Image anchorIcon;
     public float anchorSpeedThreshold = 0.3f;
@@ -38,6 +43,7 @@ public class BoatController : MonoBehaviour, BoatControls.IGameplayActions
     [Header("Sound Effects")]
     public AudioSource windSource;
     public AudioClip windLoop;
+    public GameObject AudioSources;
 
     [Header("Windvolume")]
     [Range(0.1f, 10f)]
@@ -65,10 +71,17 @@ public class BoatController : MonoBehaviour, BoatControls.IGameplayActions
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0.5f;
         rb.angularDamping = 2f;
+        if (!IsOwner)
+        {
+            ShipHud.SetActive(false);
+            MainCamera.SetActive(false);
+            AudioSources.SetActive(false);
+        }
     }
 
     void FixedUpdate()
     {
+        if (!IsOwner) return;
         float targetTurn = Mathf.Abs(turnInput) > turnDeadZone ? turnInput : 0f;
 
         if (Mathf.Sign(targetTurn) != Mathf.Sign(currentTurn) && targetTurn != 0f)
