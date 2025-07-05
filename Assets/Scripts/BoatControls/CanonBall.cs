@@ -1,37 +1,41 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class CannonBall : MonoBehaviour
+public class CannonBall : NetworkBehaviour
 {
     public float damage = 25f;
     public AudioClip splashSound;
     public GameObject splashEffect;
-    public float waterHeight = 0f;         // Pas dit aan op je waterspiegel
-    public float splashThreshold = 0.1f;   // Hoe dicht de bal bij het water moet zijn
-    private bool hasSplashed = false;      // voorkomt dubbele splash
-
-    public float splashVolume = 1.0f;      // NIEUW: volume regelbaar in de inspector
-    public GameObject shooter; // toe te voegen bovenaan
+    public float waterHeight = 0f;
+    public float splashThreshold = 0.1f;
+    private bool hasSplashed = false;
+    public float splashVolume = 1.0f;
+    public GameObject shooter;
 
     void OnCollisionEnter(Collision collision)
     {
         if (hasSplashed) return;
 
-        // Negeer botsing met afzender zelf
+        // Ignore collision with shooter
         if (collision.gameObject == shooter || collision.transform.root.gameObject == shooter)
             return;
 
-        ShipHealth target = collision.gameObject.GetComponentInParent<ShipHealth>();
-        if (target != null)
+        if (IsServer)
         {
-            target.TakeDamage(damage);
+            ShipHealth target = collision.gameObject.GetComponentInParent<ShipHealth>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
+            Splash();
         }
-
-        Splash();
     }
 
     void Update()
     {
-        if (!hasSplashed && transform.position.y <= waterHeight + splashThreshold)
+        if (!IsServer || hasSplashed) return;
+
+        if (transform.position.y <= waterHeight + splashThreshold)
         {
             Splash();
         }
@@ -40,8 +44,16 @@ public class CannonBall : MonoBehaviour
     void Splash()
     {
         hasSplashed = true;
-        Instantiate(splashEffect, transform.position, Quaternion.identity);
-        AudioSource.PlayClipAtPoint(splashSound, transform.position, splashVolume);  // Volume toegevoegd
-        Destroy(gameObject);
+
+        // Only the server spawns effects and despawns the object
+        SpawnSplashEffectClientRpc(transform.position);
+        NetworkObject.Despawn();
+    }
+
+    [ClientRpc]
+    void SpawnSplashEffectClientRpc(Vector3 position)
+    {
+        Instantiate(splashEffect, position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(splashSound, position, splashVolume);
     }
 }

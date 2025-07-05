@@ -47,6 +47,8 @@ public class OrbitBoatCamera : MonoBehaviour, BoatControls.IGameplayActions
 
     void LateUpdate()
     {
+        if (target == null) return;
+
         float lookX = lookInput.x * sensitivity * Time.deltaTime;
         float lookY = lookInput.y * sensitivity * Time.deltaTime;
 
@@ -56,12 +58,14 @@ public class OrbitBoatCamera : MonoBehaviour, BoatControls.IGameplayActions
 
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
         float currentDistance = isAiming ? zoomedDistance : defaultDistance;
-        Vector3 offset = rotation * new Vector3(0f, height, -currentDistance);
-        Vector3 desiredPosition = target.position + offset;
+
+        Vector3 offset = rotation * new Vector3(0f, 0f, -currentDistance);
+        Vector3 desiredPosition = target.position + Vector3.up * height + offset;
 
         transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * followSpeed);
         transform.LookAt(target.position + Vector3.up * 2f);
     }
+
 
     public void OnTrust(InputAction.CallbackContext context) { }
     public void OnBrake(InputAction.CallbackContext context) { }

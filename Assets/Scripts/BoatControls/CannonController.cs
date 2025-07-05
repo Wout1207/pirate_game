@@ -1,7 +1,9 @@
+using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CannonController : MonoBehaviour, BoatControls.IGameplayActions
+public class CannonController : NetworkBehaviour, BoatControls.IGameplayActions
 {
     public AudioSource cannonAudioSource;
     public AudioClip cannonFireSound;
@@ -38,6 +40,7 @@ public class CannonController : MonoBehaviour, BoatControls.IGameplayActions
     {
         if (isAiming)
         {
+            if (!IsOwner) return;
             bool lookingLeft = IsLookingLeft();
             bool lookingRight = IsLookingRight();
 
@@ -85,35 +88,50 @@ public class CannonController : MonoBehaviour, BoatControls.IGameplayActions
     }
 
     void FireCannons(Transform[] cannonPoints)
-{
-    foreach (var point in cannonPoints)
     {
-        cannonAudioSource.PlayOneShot(cannonFireSound, 0.5f);
+        foreach (var point in cannonPoints)
+        {
+            cannonAudioSource.PlayOneShot(cannonFireSound, 0.5f);
 
-        var ball = Instantiate(cannonBallPrefab, point.position, point.rotation);
-        var rb = ball.GetComponent<Rigidbody>();
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            var ball = Instantiate(cannonBallPrefab, point.position, point.rotation);
+            var rb = ball.GetComponent<Rigidbody>();
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-        // Geef de afzender mee aan de kogel
-        ball.GetComponent<CannonBall>().shooter = this.gameObject;
+            // Geef de afzender mee aan de kogel
+            ball.GetComponent<CannonBall>().shooter = this.gameObject;
 
-        // Kleine variatie in richting (max ±3 graden)
-        float maxAngle = 3f;
-        Quaternion spreadRotation = Quaternion.Euler(
-            Random.Range(-maxAngle, maxAngle),
-            Random.Range(-maxAngle, maxAngle),
-            0f
-        );
-        Vector3 spreadDirection = spreadRotation * point.forward;
+            // Kleine variatie in richting (max ±3 graden)
+            float maxAngle = 3f;
+            Quaternion spreadRotation = Quaternion.Euler(
+                Random.Range(-maxAngle, maxAngle),
+                Random.Range(-maxAngle, maxAngle),
+                0f
+            );
+            Vector3 spreadDirection = spreadRotation * point.forward;
 
-        // Willekeurige kracht (±10%)
-        float randomizedForce = fireForce * Random.Range(0.9f, 1.1f);
-        rb.AddForce(spreadDirection * randomizedForce, ForceMode.Impulse);
+            // Willekeurige kracht (±10%)
+            float randomizedForce = fireForce * Random.Range(0.9f, 1.1f);
+            rb.AddForce(spreadDirection * randomizedForce, ForceMode.Impulse);
 
-        Instantiate(smokeEffectPrefab, point.position, point.rotation);
-        Destroy(ball, ballLifetime);
+            ball.GetComponent<NetworkObject>().Spawn();
+
+            Instantiate(smokeEffectPrefab, point.position, point.rotation);
+            StartCoroutine(DestroyCannonballAfterTime(ball.GetComponent<NetworkObject>(), ballLifetime));
+
+        }
     }
-}
+
+    IEnumerator DestroyCannonballAfterTime(NetworkObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (obj != null && obj.IsSpawned)
+        {
+            obj.Despawn();
+        }
+    }
+
+
 
 
     public void OnLook(InputAction.CallbackContext context) { }
