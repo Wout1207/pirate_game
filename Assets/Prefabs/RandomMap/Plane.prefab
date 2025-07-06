@@ -153,11 +153,9 @@ MonoBehaviour:
   terrainTypes:
   - name: water
     height: 0.55
-    height: 0.57
     color: {r: 0.8509804, g: 0.69411767, b: 0.3372549, a: 0}
   - name: sand
     height: 0.57
-    height: 0.59
     color: {r: 0.4862745, g: 0.20784314, b: 0.03529412, a: 0}
   - name: grass
     height: 0.75
@@ -182,5 +180,4 @@ MonoBehaviour:
     frequency: 0.07
     amplitude: 0.3
   grassPrefab: {fileID: 0}
-  heightMultiplier: 50
-  heightMultiplier: 75
+  heightMultiplier: 100

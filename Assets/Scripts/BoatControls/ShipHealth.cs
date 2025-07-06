@@ -16,36 +16,36 @@ public class ShipHealth : NetworkBehaviour
     public bool isEnemy = false;
 
     [Header("Voor speler")]
-    public Slider playerHealthSlider;
+    public Slider playerHealthSlider;  // Only assigned on player-controlled ships
 
-    void Start()
+    private void Start()
     {
-        if (IsServer)
-        {
-            currentHealth.Value = maxHealth;
-        }
-
-        UpdateUI();
         currentHealth.OnValueChanged += OnHealthChanged;
+
+        // Ensure correct UI on start
+        UpdateUI();
+    }
+
+    private void OnDestroy()
+    {
+        currentHealth.OnValueChanged -= OnHealthChanged;
     }
 
     public void TakeDamage(float amount)
     {
-        if (!IsServer) return;  // Only the server can apply damage
+        if (!IsServer) return;  // Only server modifies health
 
-        currentHealth.Value -= amount;
-        currentHealth.Value = Mathf.Clamp(currentHealth.Value, 0, maxHealth);
+        currentHealth.Value = Mathf.Clamp(currentHealth.Value - amount, 0, maxHealth);
 
         if (isEnemy)
         {
             Debug.Log($"{gameObject.name} (enemy) heeft nog {currentHealth.Value} / {maxHealth} HP.");
         }
 
-        if (currentHealth.Value <= 0)
-            Die();
+        // No need to call Die() here, OnHealthChanged handles it
     }
 
-    void OnHealthChanged(float oldValue, float newValue)
+    private void OnHealthChanged(float oldValue, float newValue)
     {
         UpdateUI();
 
@@ -55,26 +55,22 @@ public class ShipHealth : NetworkBehaviour
         }
     }
 
-    void UpdateUI()
+    private void UpdateUI()
     {
         if (playerHealthSlider != null)
+        {
             playerHealthSlider.value = currentHealth.Value;
+        }
     }
 
-    void Die()
+    private void Die()
     {
         Debug.Log($"{gameObject.name} is gezonken!");
 
         if (IsServer)
         {
-            if (TryGetComponent<NetworkObject>(out var netObj))
-            {
-                netObj.Despawn();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Debug.Log("destroying ship");
+            transform.parent.GetComponent<NetworkObject>().Despawn();
         }
     }
 }

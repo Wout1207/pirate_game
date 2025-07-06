@@ -51,15 +51,19 @@ public class TileGeneration : MonoBehaviour
             for (int x = 0; x < tileWidth; x++)
             {
                 float height = heightMap[z, x];
-                if (height > 0.7)
+
+                // Drastically reduce height below 0.57 with a smooth falloff
+                if (height < 0.57f)
                 {
-                    height = Mathf.Exp(height)- Mathf.Exp(0.7f) + 0.7f;
+                    float t = height / 0.57f;
+                    height = Mathf.SmoothStep(0f, 0.57f, Mathf.Pow(t, 3));
                 }
-                if (height < 0.57)
+                // Smooth raise above 0.7
+                else if (height > 0.7f)
                 {
-                    height = Mathf.Pow(height,5) - Mathf.Pow(0.57f,5) + 0.57f;
+                    height = Mathf.Exp(height) - Mathf.Exp(0.7f) + 0.7f;
                 }
-                
+
                 heightMap[z, x] = height;
             }
         }

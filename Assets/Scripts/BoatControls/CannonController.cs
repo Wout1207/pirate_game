@@ -77,14 +77,21 @@ public class CannonController : NetworkBehaviour, BoatControls.IGameplayActions
 
         if (IsLookingLeft() && reloadUI.IsLeftReloaded())
         {
-            FireCannons(leftCannons);
+            FireCannonsServerRpc(true);  // true = left
             reloadUI.StartLeftReload();
         }
         else if (IsLookingRight() && reloadUI.IsRightReloaded())
         {
-            FireCannons(rightCannons);
+            FireCannonsServerRpc(false);  // false = right
             reloadUI.StartRightReload();
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void FireCannonsServerRpc(bool isLeft)
+    {
+        Transform[] cannonPoints = isLeft ? leftCannons : rightCannons;
+        FireCannons(cannonPoints);
     }
 
     void FireCannons(Transform[] cannonPoints)
@@ -97,10 +104,8 @@ public class CannonController : NetworkBehaviour, BoatControls.IGameplayActions
             var rb = ball.GetComponent<Rigidbody>();
             rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-            // Geef de afzender mee aan de kogel
             ball.GetComponent<CannonBall>().shooter = this.gameObject;
 
-            // Kleine variatie in richting (max ±3 graden)
             float maxAngle = 3f;
             Quaternion spreadRotation = Quaternion.Euler(
                 Random.Range(-maxAngle, maxAngle),
@@ -109,7 +114,6 @@ public class CannonController : NetworkBehaviour, BoatControls.IGameplayActions
             );
             Vector3 spreadDirection = spreadRotation * point.forward;
 
-            // Willekeurige kracht (±10%)
             float randomizedForce = fireForce * Random.Range(0.9f, 1.1f);
             rb.AddForce(spreadDirection * randomizedForce, ForceMode.Impulse);
 
@@ -117,7 +121,6 @@ public class CannonController : NetworkBehaviour, BoatControls.IGameplayActions
 
             Instantiate(smokeEffectPrefab, point.position, point.rotation);
             StartCoroutine(DestroyCannonballAfterTime(ball.GetComponent<NetworkObject>(), ballLifetime));
-
         }
     }
 
@@ -130,6 +133,7 @@ public class CannonController : NetworkBehaviour, BoatControls.IGameplayActions
             obj.Despawn();
         }
     }
+
 
 
 
