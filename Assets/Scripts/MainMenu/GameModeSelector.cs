@@ -12,6 +12,7 @@ public class GameModeSelector : MonoBehaviour
 
     public GameObject[] gameModeItems; // De knoppen of hun GameObjects
     private int currentIndex = 0;
+    private string selectedGameMode = "";
 
     void Start()
     {
@@ -75,7 +76,12 @@ public class GameModeSelector : MonoBehaviour
     {
         // Laad je gamemode of toon extra scherm
         Debug.Log($"Selected game mode: {item.modeName}");
-        SceneManager.LoadScene(item.modeName);
+        //SceneManager.LoadScene(item.modeName);
+        selectedGameMode = item.modeName;
+    }
+
+    public void StartGameMode(){
+        SceneManager.LoadScene(selectedGameMode);
     }
 
     public void ShowInfo(string title, string description)
