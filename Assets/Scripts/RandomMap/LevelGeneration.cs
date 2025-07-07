@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class LevelGeneration : MonoBehaviour
+public class LevelGeneration : NetworkBehaviour
 {
     [SerializeField]
     private int mapWidthInTiles, mapDepthInTiles;
@@ -10,6 +11,7 @@ public class LevelGeneration : MonoBehaviour
     private GameObject tilePrefab;
     void Start()
     {
+        if (!IsOwner) return;
         GenerateMap();
     }
     void GenerateMap()
