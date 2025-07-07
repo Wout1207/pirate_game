@@ -934,15 +934,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 194249189046821821, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_RandomAcceleration.x
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 194249189046821821, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_RandomAcceleration.z
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 194249189046821821, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 194249189046821821, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.z
@@ -961,24 +961,40 @@ PrefabInstance:
       value: 508025506
       objectReference: {fileID: 0}
     - target: {fileID: 2505005641168020760, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505005641168020760, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998379505755037598, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2998379505755037598, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 3809988745139252509, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: reloadAudioSource
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4061153855968131289, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061153855968131289, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077029816506346715, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5077029816506346715, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 5611233161156258448, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_LocalScale.x
@@ -1033,8 +1049,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6136779144236849185, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136779144236849185, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 6347744590804331595, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1085,12 +1105,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8464813682713825798, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464813682713825798, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888035577405065243, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
+      propertyPath: m_RandomAcceleration.x
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8888035577405065243, guid: ac77e6096f79fe2439fb168c4b06e6ce, type: 3}
       propertyPath: m_ExternalAcceleration.x
-      value: -100
+      value: -25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
