@@ -79,6 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  selectionUI: {fileID: 0}
+  shipPrefabs:
+  - {fileID: 908685402376544290, guid: 41bd6ea4e10028f40bb2a17c07a90a89, type: 3}
 --- !u!1 &3904198185988249026
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5166875045704472245, guid: 9b2bdd9e9d7b2cc43abbebb7017494a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5166875045704472245, guid: 9b2bdd9e9d7b2cc43abbebb7017494a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -738,10 +741,10 @@ PrefabInstance:
     - target: {fileID: 5166875045704472245, guid: 9b2bdd9e9d7b2cc43abbebb7017494a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 908685402376544290, guid: 41bd6ea4e10028f40bb2a17c07a90a89, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5166875045704472245, guid: 9b2bdd9e9d7b2cc43abbebb7017494a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8544307465892288322, guid: 9b2bdd9e9d7b2cc43abbebb7017494a6, type: 3}
       propertyPath: m_Name

@@ -1,19 +1,44 @@
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class SelectShip : NetworkBehaviour
 {
+    [SerializeField] private GameObject selectionUI;  // Reference to just the UI GameObject
+    [SerializeField] private List<GameObject> shipPrefabs;
+
     private void Start()
     {
-        if(!IsOwner)
+        selectionUI = transform.parent.gameObject;
+        if (!IsOwner)
         {
-            Destroy(transform.parent.gameObject);
+            selectionUI.SetActive(false);  // Hide UI for non-owner
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
-    public void Select(GameObject shipPrefab)
+
+    public void Select(int prefabIndex)
     {
-        GameObject ship = Instantiate(shipPrefab);
-        ship.GetComponent<NetworkObject>().Spawn();
-        Destroy(transform.parent.gameObject);
+        if (!IsOwner) return;
+        if (prefabIndex < 0 || prefabIndex >= shipPrefabs.Count) return;
+
+        SelectShipServerRpc(prefabIndex);
+        selectionUI.SetActive(false);
     }
+
+    [ServerRpc(RequireOwnership = false)]
+    void SelectShipServerRpc(int prefabIndex, ServerRpcParams rpcParams = default)
+    {
+        if (prefabIndex < 0 || prefabIndex >= shipPrefabs.Count) return;
+
+        GameObject prefab = shipPrefabs[prefabIndex];
+        GameObject ship = Instantiate(prefab);
+
+        ship.GetComponent<NetworkObject>().SpawnWithOwnership(rpcParams.Receive.SenderClientId);
+    }
+
 }
