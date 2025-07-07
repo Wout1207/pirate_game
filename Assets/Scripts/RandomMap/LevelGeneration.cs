@@ -5,35 +5,33 @@ using UnityEngine;
 
 public class LevelGeneration : NetworkBehaviour
 {
-    [SerializeField]
-    private int mapWidthInTiles, mapDepthInTiles;
-    [SerializeField]
-    private GameObject tilePrefab;
+    [SerializeField] private int mapWidthInTiles, mapDepthInTiles;
+    [SerializeField] private GameObject tilePrefab;
 
-    private NetworkList<float> seedList;
+    private NetworkList<float> seedList = new NetworkList<float>();
     private bool mapGenerated = false;
-
-    private void Awake()
-    {
-        seedList = new NetworkList<float>();
-    }
 
     public override void OnNetworkSpawn()
     {
         seedList.OnListChanged += OnSeedListChanged;
 
-        Debug.Log("OnNetworkSpawn called");
-
         if (IsOwner)
         {
-            Debug.Log("Server generating seed...");
-            GenerateSeed();
+            if (seedList.Count == 0) // Prevents regenerating the map when client reconnects
+            {
+                GenerateSeed();
+            }
+        }
+
+        // Regardless of host or client, check if the list is already populated
+        if (seedList.Count == tilePrefab.GetComponent<TileGeneration>().waves.Length && !mapGenerated)
+        {
             GenerateMap(seedList);
             mapGenerated = true;
         }
     }
 
-    void GenerateSeed()
+    private void GenerateSeed()
     {
         int waveSize = tilePrefab.GetComponent<TileGeneration>().waves.Length;
 
@@ -41,19 +39,22 @@ public class LevelGeneration : NetworkBehaviour
         {
             seedList.Add(Random.Range(0, 10000f));
         }
+
+        GenerateMap(seedList);
+        mapGenerated = true;
     }
 
     private void OnSeedListChanged(NetworkListEvent<float> changeEvent)
     {
-        if (!IsOwner && seedList.Count == tilePrefab.GetComponent<TileGeneration>().waves.Length && !mapGenerated)
+        Debug.Log("seed list changed");
+        if (!mapGenerated && seedList.Count == tilePrefab.GetComponent<TileGeneration>().waves.Length)
         {
-            Debug.Log("Client received full seed list, generating map...");
             GenerateMap(seedList);
             mapGenerated = true;
         }
     }
 
-    void GenerateMap(NetworkList<float> seed)
+    private void GenerateMap(NetworkList<float> seed)
     {
         Vector2 tileSize = tilePrefab.GetComponent<PlaneGeneration>().planeSize;
         int tileWidth = (int)tileSize.x;
