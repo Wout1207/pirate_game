@@ -80,5 +80,6 @@ public class LevelGeneration : NetworkBehaviour
                 }
             }
         }
+        Destroy(GameObject.Find("LoadingCanvas"));
     }
 }
