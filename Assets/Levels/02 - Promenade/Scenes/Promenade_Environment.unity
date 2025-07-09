@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -3486,9 +3487,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889514
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -4022,9 +4025,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889510
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -7556,9 +7561,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889515
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -8587,9 +8594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889503
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -9045,9 +9054,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889502
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -9515,9 +9526,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889508
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -10399,9 +10412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889517
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -13354,9 +13369,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889509
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -13883,9 +13900,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889504
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -18904,9 +18923,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889506
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -22920,9 +22941,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889512
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -26639,9 +26662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889505
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -29369,9 +29394,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889507
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -30636,9 +30663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889501
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -30772,9 +30801,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889511
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -31798,9 +31829,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889516
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
@@ -32553,9 +32586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -1529338852926517043, guid: dcbe15fff9c781e44be9aff21424d5c8, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8302083647509889513
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
