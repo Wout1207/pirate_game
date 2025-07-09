@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -345,12 +346,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   m_Graph: {fileID: -8558400588784944983, guid: f02b3ee1f0b6cb04baea57ef23167a99, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 1736226776238261198
   - rid: 1736226776390304712
   - rid: 1736226777481085691
   - rid: 1736227207031292356
+  NetcodeRunOnlyOnOwner: 0
   references:
     version: 2
     RefIds:
