@@ -7,6 +7,7 @@ public class GameModeItem : MonoBehaviour, IPointerEnterHandler
 {
     public string modeName;
     [TextArea] public string description;
+    public Sprite modeImage;
 
     private Button button;
     private GameModeSelector selector;
@@ -31,6 +32,6 @@ public class GameModeItem : MonoBehaviour, IPointerEnterHandler
 
     public void Highlight()
     {
-        selector.ShowInfo(modeName, description);
+        selector.ShowInfo(modeName, description, modeImage);
     }
 }

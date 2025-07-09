@@ -9,6 +9,8 @@ public class GameModeSelector : MonoBehaviour
 {
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI descriptionText;
+    public Image previewImage;
+
 
     public GameObject[] gameModeItems; // De knoppen of hun GameObjects
     private int currentIndex = 0;
@@ -69,14 +71,12 @@ public class GameModeSelector : MonoBehaviour
     {
         var go = gameModeItems[currentIndex];
         var button = go.GetComponent<Button>();
-        button?.onClick.Invoke();  // klik met controller of toetsenbord
+        button?.onClick.Invoke();
     }
 
     public void SelectGameMode(GameModeItem item)
     {
-        // Laad je gamemode of toon extra scherm
         Debug.Log($"Selected game mode: {item.modeName}");
-        //SceneManager.LoadScene(item.modeName);
         selectedGameMode = item.modeName;
     }
 
@@ -84,9 +84,16 @@ public class GameModeSelector : MonoBehaviour
         SceneManager.LoadScene(selectedGameMode);
     }
 
-    public void ShowInfo(string title, string description)
+    public void ShowInfo(string title, string description, Sprite preview)
+{
+    titleText.text = title;
+    descriptionText.text = description;
+
+    if (previewImage != null)
     {
-        titleText.text = title;
-        descriptionText.text = description;
+        previewImage.sprite = preview;
+        previewImage.enabled = (preview != null); // show or hide image
     }
+}
+
 }
