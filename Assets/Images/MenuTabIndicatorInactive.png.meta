@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 833, z: 0, w: 833}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -108,13 +108,673 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_0
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1189
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43109a4fbf90d5a42aee3e4de1121311
+      internalID: 502168483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_1
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 1194
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15410c4374bee4146b368c8238b02fde
+      internalID: 685925079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_2
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 1194
+        width: 25
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04503f5df82411947bb3a64d99efda7f
+      internalID: 1054582205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_3
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 1196
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4c25af248eeb548baad000d637ee74
+      internalID: -1609762612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 1186
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5a687c3408f4848b665ea857d058df
+      internalID: -718268094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_5
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 1196
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcee09c3ec33feb44a2ec02f7039f8a2
+      internalID: 1027255508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_6
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 846
+        width: 1945
+        height: 344
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e63906b710a544db6aa4569fb8a42b
+      internalID: -955615096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_7
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 1182
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f23ab456066314abddc8cced2d36e8
+      internalID: 555558885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_8
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1182
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825d019132863294391d246805c26cab
+      internalID: -1471793828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_9
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1176
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec78c18736d23b44a998832589147b4f
+      internalID: 148064919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_10
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 1185
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd73b8f52831aef4cae3572c6ec01718
+      internalID: -2119678693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_11
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 1183
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546094f5c61e93e4f9e7b9351b1516e7
+      internalID: 744909359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_12
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 1184
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82bfb10ae8ab0bd4c9a549f39234a118
+      internalID: -1337349117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_13
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1180
+        width: 34
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0725c5fc2b4a62842bbe1f4cf0f96152
+      internalID: -1725751673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_14
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1180
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9a6f2ea1fc48d498a2848997d9958f
+      internalID: -819424797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_15
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 1180
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2e82ae750287042ac2138918a08a54
+      internalID: -1877416404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_16
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 1186
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf7a261055ef7e4f86d7adce51de975
+      internalID: 929225187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_17
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1179
+        width: 23
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c959a5f132955459c4da2bbe550702
+      internalID: 837475690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_18
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 1182
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e14d7d7b3eeb2429306680479bee71
+      internalID: -21061929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_19
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 1183
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7b34c9d8d49064d8b811631c684679
+      internalID: -1845932650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_20
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 1182
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00ac88ec9ebb4d44a49b041895df25b
+      internalID: -836336887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_21
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 1182
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3133f081c6040324db41ac52307acf8e
+      internalID: 738720761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_22
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 1179
+        width: 53
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddecece23743b3a41a42bdb4ffc74e98
+      internalID: -673305096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_23
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 1185
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71c296a5d7940d4ea6a48fbc2e20ab9
+      internalID: -721151927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_24
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 1183
+        width: 29
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9567b9b5eda1c4e9451f0012e431dc
+      internalID: 1375163497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_25
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1181
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b353434b7ff9d2e4db00c854acb4ce9b
+      internalID: -175967461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_26
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 1177
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb48b3c0d6eab0347a20cfe8aa87678d
+      internalID: -1701151677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_27
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1180
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818a27b66fe39a846a2592bbddd7ff08
+      internalID: -1930548403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_28
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1177
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638d8358f6a50294590ab998a2af46c1
+      internalID: 1013949890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuTabIndicatorInactive_29
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 1178
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898878292cbb5284caca60cd56aed6e6
+      internalID: -541073309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -122,7 +782,37 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MenuTabIndicatorInactive_0: 502168483
+      MenuTabIndicatorInactive_1: 685925079
+      MenuTabIndicatorInactive_10: -2119678693
+      MenuTabIndicatorInactive_11: 744909359
+      MenuTabIndicatorInactive_12: -1337349117
+      MenuTabIndicatorInactive_13: -1725751673
+      MenuTabIndicatorInactive_14: -819424797
+      MenuTabIndicatorInactive_15: -1877416404
+      MenuTabIndicatorInactive_16: 929225187
+      MenuTabIndicatorInactive_17: 837475690
+      MenuTabIndicatorInactive_18: -21061929
+      MenuTabIndicatorInactive_19: -1845932650
+      MenuTabIndicatorInactive_2: 1054582205
+      MenuTabIndicatorInactive_20: -836336887
+      MenuTabIndicatorInactive_21: 738720761
+      MenuTabIndicatorInactive_22: -673305096
+      MenuTabIndicatorInactive_23: -721151927
+      MenuTabIndicatorInactive_24: 1375163497
+      MenuTabIndicatorInactive_25: -175967461
+      MenuTabIndicatorInactive_26: -1701151677
+      MenuTabIndicatorInactive_27: -1930548403
+      MenuTabIndicatorInactive_28: 1013949890
+      MenuTabIndicatorInactive_29: -541073309
+      MenuTabIndicatorInactive_3: -1609762612
+      MenuTabIndicatorInactive_4: -718268094
+      MenuTabIndicatorInactive_5: 1027255508
+      MenuTabIndicatorInactive_6: -955615096
+      MenuTabIndicatorInactive_7: 555558885
+      MenuTabIndicatorInactive_8: -1471793828
+      MenuTabIndicatorInactive_9: 148064919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
