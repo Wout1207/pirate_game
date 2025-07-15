@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
-using Unity.Netcode;
+using FishNet.Object;
 
 [RequireComponent(typeof(Rigidbody))]
 public class BoatController : NetworkBehaviour, BoatControls.IGameplayActions
@@ -49,7 +49,6 @@ public class BoatController : NetworkBehaviour, BoatControls.IGameplayActions
     [Range(0.1f, 10f)]
     public float windVolumeChangeSpeed = 1f;
 
-
     public AudioSource uiAudioSource;
     public AudioClip bellSound;
 
@@ -71,17 +70,12 @@ public class BoatController : NetworkBehaviour, BoatControls.IGameplayActions
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0.5f;
         rb.angularDamping = 2f;
-        if (!IsOwner)
-        {
-            ShipHud.SetActive(false);
-            MainCamera.SetActive(false);
-            AudioSources.SetActive(false);
-        }
     }
 
     void FixedUpdate()
     {
         if (!IsOwner) return;
+
         float targetTurn = Mathf.Abs(turnInput) > turnDeadZone ? turnInput : 0f;
 
         if (Mathf.Sign(targetTurn) != Mathf.Sign(currentTurn) && targetTurn != 0f)
@@ -96,11 +90,12 @@ public class BoatController : NetworkBehaviour, BoatControls.IGameplayActions
 
         rb.AddTorque(Vector3.up * currentTurn * turnTorque * Time.deltaTime, ForceMode.Force);
 
-        // Bouw de snelheid op richting target
+        // Bouw snelheid op richting targetSpeed
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accelerationRate * Time.fixedDeltaTime);
-        rb.AddForce(transform.forward * currentSpeed, ForceMode.Force);
+        Vector3 targetVelocity = transform.forward * currentSpeed;
+        rb.linearVelocity = Vector3.MoveTowards(rb.linearVelocity, targetVelocity, accelerationRate * Time.fixedDeltaTime);
 
-        // Richt bij (minder zijwaarts glijden)
+        // Richt bij om zijwaarts glijden te beperken
         Vector3 desiredDir = transform.forward.normalized * rb.linearVelocity.magnitude;
         rb.linearVelocity = Vector3.Slerp(rb.linearVelocity, desiredDir, Time.fixedDeltaTime * directionCorrection);
 
@@ -109,20 +104,19 @@ public class BoatController : NetworkBehaviour, BoatControls.IGameplayActions
 
         UpdateSpeedDots();
         HandleWindSound();
-        // Toon ankericoon als de boot stilstaat
+
         if (anchorIcon != null)
         {
-            bool isStopped = rb.linearVelocity.magnitude < anchorSpeedThreshold;
+            float speed = rb.linearVelocity.magnitude;
+            float targetAlpha = speed < anchorSpeedThreshold ? 1f : 0f;
             Color iconColor = anchorIcon.color;
-            float targetAlpha = rb.linearVelocity.magnitude < anchorSpeedThreshold ? 1f : 0f;
-            iconColor.a = Mathf.MoveTowards(iconColor.a, targetAlpha, Time.fixedDeltaTime * 2f); // 2f = fadespeed
+            iconColor.a = Mathf.MoveTowards(iconColor.a, targetAlpha, Time.fixedDeltaTime * 2f);
             anchorIcon.color = iconColor;
         }
     }
 
     private void HandleWindSound()
     {
-        float speed = rb.linearVelocity.magnitude;
         float targetVolume = currentSpeedLevel / (float)(speedLevels.Length - 1);
         windSource.volume = Mathf.MoveTowards(windSource.volume, targetVolume, Time.deltaTime * windVolumeChangeSpeed);
 

@@ -4707,6 +4707,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55ed60466b641484a9d89cf966edefb8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1064519868883376494}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55ed60466b641484a9d89cf966edefb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 55ed60466b641484a9d89cf966edefb8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5524689870216855492}
@@ -4802,6 +4805,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef41229eb5761d74a966158b34a2bc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
+  MainCamera: {fileID: 0}
   speedLevels:
   - 0
   - 150
@@ -4813,6 +4820,7 @@ MonoBehaviour:
   turnDeadZone: 0.05
   turnSmoothTime: 0.1
   speedText: {fileID: 0}
+  ShipHud: {fileID: 0}
   speedDots:
   - {fileID: 0}
   - {fileID: 0}
@@ -4823,6 +4831,7 @@ MonoBehaviour:
   anchorSpeedThreshold: 0.3
   windSource: {fileID: 0}
   windLoop: {fileID: 0}
+  AudioSources: {fileID: 0}
   windVolumeChangeSpeed: 1
   uiAudioSource: {fileID: 0}
   bellSound: {fileID: 0}
@@ -4838,6 +4847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a316406344c8c0f459884b1291483f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   cannonAudioSource: {fileID: 0}
   cannonFireSound: {fileID: 0}
   leftCannons:
@@ -4871,8 +4881,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbffb7f1165510042af6b0601da236d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   maxHealth: 100
-  currentHealth: 0
+  currentHealth:
+    m_InternalValue: 100
   isEnemy: 0
   playerHealthSlider: {fileID: 0}
 --- !u!4 &5605176065095817812 stripped
