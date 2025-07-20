@@ -4808,7 +4808,6 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 0}
   _networkObjectCache: {fileID: 0}
-  MainCamera: {fileID: 0}
   speedLevels:
   - 0
   - 150
@@ -4819,8 +4818,8 @@ MonoBehaviour:
   turnTorque: 30000
   turnDeadZone: 0.05
   turnSmoothTime: 0.1
-  speedText: {fileID: 0}
   ShipHud: {fileID: 0}
+  speedText: {fileID: 0}
   speedDots:
   - {fileID: 0}
   - {fileID: 0}
@@ -4832,9 +4831,9 @@ MonoBehaviour:
   windSource: {fileID: 0}
   windLoop: {fileID: 0}
   AudioSources: {fileID: 0}
-  windVolumeChangeSpeed: 1
   uiAudioSource: {fileID: 0}
   bellSound: {fileID: 0}
+  windVolumeChangeSpeed: 1
 --- !u!114 &4246063163134752105
 MonoBehaviour:
   m_ObjectHideFlags: 0

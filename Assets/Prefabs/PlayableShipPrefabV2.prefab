@@ -26724,77 +26724,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6029432666645532751, guid: 91c70efa27818b2469de691cce8ce086, type: 3}
   m_PrefabInstance: {fileID: 2713597555684081809}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4451983232662545565
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7888069562796453236}
-    m_Modifications:
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 129.31741
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 39.229225
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 68.68819
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863771076359848434, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: m_Name
-      value: ShipCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6920380582195012976, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 7888069562796453236}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
---- !u!4 &2083998181349765956 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2387829624746874841, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-  m_PrefabInstance: {fileID: 4451983232662545565}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9130776870540223855 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4863771076359848434, guid: 50bd064f8dfd9254eb61c3c551697f18, type: 3}
-  m_PrefabInstance: {fileID: 4451983232662545565}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4971594198649975148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27865,9 +27794,6 @@ PrefabInstance:
       addedObject: {fileID: 1784202463974098288}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b595d3e1dbe4a144a8aed67aa59cb7d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2083998181349765956}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b595d3e1dbe4a144a8aed67aa59cb7d4, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8117556345135652699}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b595d3e1dbe4a144a8aed67aa59cb7d4, type: 3}
       insertIndex: -1
@@ -27942,19 +27868,18 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 7045610970348003839}
   _networkObjectCache: {fileID: 7045610970348003839}
-  MainCamera: {fileID: 9130776870540223855}
   speedLevels:
   - 0
-  - 150
-  - 300
-  - 500
-  accelerationRate: 50
-  directionCorrection: 5
-  turnTorque: 300000
+  - 3
+  - 7
+  - 10
+  accelerationRate: 10
+  directionCorrection: 1
+  turnTorque: 250
   turnDeadZone: 0.05
   turnSmoothTime: 0.1
-  speedText: {fileID: 5171265108400506308}
   ShipHud: {fileID: 8846097796276332828}
+  speedText: {fileID: 5171265108400506308}
   speedDots:
   - {fileID: 3694752322942411214}
   - {fileID: 5365736868053771760}
@@ -27966,9 +27891,9 @@ MonoBehaviour:
   windSource: {fileID: 2418535471306154188}
   windLoop: {fileID: 8300000, guid: 7eb0a682af503f84b85f32d07ae4ba23, type: 3}
   AudioSources: {fileID: 4055601511447480347}
-  windVolumeChangeSpeed: 1
   uiAudioSource: {fileID: 8905901469940293143}
   bellSound: {fileID: 8300000, guid: e72797fdc523a9941850bb96c348ab13, type: 3}
+  windVolumeChangeSpeed: 1
 --- !u!114 &5960840495945736534
 MonoBehaviour:
   m_ObjectHideFlags: 0
